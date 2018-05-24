@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="Binding_card" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAACCIAIAAAAAAAgAAAAAAAAAAIAAAAgAAABEAA=</HashCode>
+      <FileName>Binding_card.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Campus_card" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACAAAIAgAAAAAgAAAQAgAAAAAAAAAgAAABEAA=</HashCode>
+      <FileName>Campus_card.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAASAiAAAIAAAAAAAAAAAIAAAEACAAAAAmQwMBEAA=</HashCode>
+      <FileName>Card.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Deposit_card" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAwQAACAAAIAAAAAAIAAAAAAAAEBAAAAAAgAgABFAA=</HashCode>
+      <FileName>Deposit_card.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

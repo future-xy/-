@@ -14,4 +14,38 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Campus_card.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Deposit_card.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Binding_card.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Card.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Campus_card.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Deposit_card.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Binding_card.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>

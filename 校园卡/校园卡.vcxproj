@@ -115,6 +115,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Binding_card.cpp" />
+    <ClCompile Include="Campus_card.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Deposit_card.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Binding_card.h" />
+    <ClInclude Include="Campus_card.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="Deposit_card.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
