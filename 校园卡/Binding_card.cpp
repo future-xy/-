@@ -1,7 +1,7 @@
-#include "Binding_card.h"
-
 #include<iostream>
 #include<map>
+
+#include "Binding_card.h"
 
 using std::cin;
 using std::cout;
@@ -71,7 +71,7 @@ bool Binding_card::operation()
 	int i = 3;
 	while (i > 0)
 	{
-		--i;
+
 		cout << "请输入密码：";
 		cin >> the_passward;
 		if (the_passward == passward)
@@ -82,7 +82,7 @@ bool Binding_card::operation()
 		else
 			cout << "\n密码错误，请重新输入\n"
 			<< "还有" << i << "次机会\n";
-
+		--i;
 	}
 	if (the_passward == passward)
 	{
@@ -171,7 +171,7 @@ bool Binding_card::init(unsigned num)
 bool Binding_card::transfer_into(unsigned object, unsigned money)
 {
 	balance += money;
-	writeAccount("转入", object, money, " ");
+	writeAccount("转入", object, money, "");
 
 	return true;
 }
@@ -199,7 +199,6 @@ bool Binding_card::pay(string place, unsigned money)
 	}
 	if (sum >= count)
 	{
-		balance = 0;
 		for (auto item = binded_card.begin(); item != binded_card.end(); ++item)
 		{
 			count = deposit_card_list[*item].remit(num, count, "auto");
@@ -207,6 +206,7 @@ bool Binding_card::pay(string place, unsigned money)
 				break;
 		}
 
+		balance = 0;
 		writeAccount("消费", 0, money, place);
 		return true;
 	}
@@ -218,11 +218,12 @@ bool Binding_card::writeAccount(string op, unsigned object_num, unsigned money, 
 	string temp;
 	string obj;
 	if (object_num == 0)
-		obj = "无";
+		obj = place;
 	else
 		obj = to_string(object_num);
-	temp = getTime() + "," + op + "," + obj + "," + place + "," + to_string(money) + "," + to_string(balance);
+	temp = getTime() + "," + op + "," + obj + ","  + to_string(money) + "," + to_string(balance)+','+"无";
 	account.push_back(temp);
+
 	return true;
 }
 bool Binding_card::showMessage() const

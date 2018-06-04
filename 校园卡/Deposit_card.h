@@ -2,6 +2,7 @@
 #define DEPOSIT_CARD_H
 
 #include "Card.h"
+
 class Deposit_card :
 	virtual public Card
 {

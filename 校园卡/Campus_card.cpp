@@ -74,7 +74,7 @@ bool Campus_card::operation()
 	int i = 3;
 	while (i > 0)
 	{
-		--i;
+
 		cout << "请输入密码：";
 		cin >> the_passward;
 
@@ -86,6 +86,7 @@ bool Campus_card::operation()
 		else
 			cout << "\n密码错误，请重新输入\n"
 			<< "还有" << i << "次机会\n";
+		--i;
 	}
 	if (the_passward == passward)
 	{
@@ -168,8 +169,8 @@ bool Campus_card::pay(string place, unsigned money)
 }
 bool Campus_card::transfer_into(unsigned object, unsigned money)
 {
-	balance += object;
-	writeAccount("转入", object, money, " ");
+	balance += money;
+	writeAccount("转入", object, money, "");
 
 	return true;
 }
@@ -189,10 +190,10 @@ bool Campus_card::writeAccount(string op, unsigned object_num, unsigned money, s
 	string temp;
 	string obj;
 	if (object_num == 0)
-		obj = "无";
+		obj = place;
 	else
 		obj = to_string(object_num);
-	temp = getTime() + "," + op + "," + obj + "," + place + "," + to_string(money) + "," + to_string(balance);
+	temp = getTime() + "," + op + "," + obj +  "," + to_string(money) + "," + to_string(balance)+','+"无";
 	account.push_back(temp);
 	return true;
 }

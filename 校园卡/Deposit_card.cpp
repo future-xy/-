@@ -65,7 +65,6 @@ bool Deposit_card::operation()
 	int i = 3;
 	while (i > 0)
 	{
-		--i;
 		cout << "请输入密码：";
 		cin >> the_passward;
 		if (the_passward == passward)
@@ -76,7 +75,7 @@ bool Deposit_card::operation()
 		else
 			cout << "\n密码错误，请重新输入\n"
 			<< "还有" << i << "次机会\n";
-
+		--i;
 	}
 	if (the_passward == passward)
 	{
@@ -172,15 +171,19 @@ bool Deposit_card::operation()
 				}
 				break;
 			case 6:
+				cout << "*****************************\n";
 				cout << "\n卡片信息如下：\n";
 				showMessage();
+				cout << "*****************************\n";
 				break;
 			case 7:
+				cout << "*****************************\n";
 				cout << "\n账户流水记录如下：\n";
 				showAccount();
+				cout << "*****************************\n";
 				break;
 			default:
-				cout << "\n指令错误，请重新输入\n";
+				cout << "\n指令错误，请重新输入\n"<<endl;
 				break;
 			}
 		}
@@ -292,7 +295,7 @@ unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
 				{
 					balance -= money;
 				}
-				binding_card_list[object].Campus_card::transfer_into(num, money);
+				binding_card_list[object].transfer_into(num, money);
 
 				writeAccount("转出", object, money, " ");
 				return 0;

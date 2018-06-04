@@ -1,5 +1,3 @@
-//TEST
-
 #include<iostream>
 #include<fstream>
 #include<string>
@@ -23,23 +21,27 @@ using std::ifstream;
 using std::ofstream;
 
 int err_flag = 0;
-map <unsigned, Campus_card> campus_card_list;
-map <unsigned, Deposit_card> deposit_card_list;
-map <unsigned, Binding_card> binding_card_list;
-set <string> student;
+map <unsigned, Campus_card> campus_card_list;				//校园卡列表
+map <unsigned, Deposit_card> deposit_card_list;				//储蓄卡列表
+map <unsigned, Binding_card> binding_card_list;				//绑定卡列表
+set <string> student;										//学生名单
 
+//获取输入命令
 int getOrder();
+//显示错误信息
 void showErr(int err_type);
+//从文件中读取数据
 bool read(unsigned &, unsigned &, map <unsigned, Campus_card>&, map <unsigned, Deposit_card>&,
 	map<unsigned, Binding_card> &);
+//将数据保存至文件中
 bool save(unsigned &, unsigned &, const map <unsigned, Campus_card>&, const map <unsigned, Deposit_card>&,
 	const map<unsigned, Binding_card>&);
 
 int main()
 {
 
-	unsigned campus_card_num = 170000;
-	unsigned deposit_card_num = 170100;
+	unsigned campus_card_num = 170000;				//校园卡初始号码
+	unsigned deposit_card_num = 170100;				//储蓄卡初始号码
 
 	if (!read(campus_card_num, deposit_card_num, campus_card_list, deposit_card_list,binding_card_list))
 	{
@@ -57,7 +59,7 @@ int main()
 			<< "(0)退出系统\n"
 			<< "(1)办理储蓄卡\n"
 			<< "(2)办理校园卡\n"
-			<< "(3)绑定储蓄卡\n"
+			<< "(3)绑定校园卡\n"
 			<< "(4)卡片业务\n";
 		int order = getOrder();
 		if (order == -1)

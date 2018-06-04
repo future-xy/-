@@ -1,7 +1,7 @@
-#include "Card.h"
-
 #include<algorithm>
 #include<iostream>
+
+#include "Card.h"
 
 using std::cout;
 using std::endl;
@@ -44,8 +44,13 @@ bool Card::showAccount() const
 		cout << "没有记录!" << endl;
 	else
 	{
+		cout << "时间\t\t\t\t操作\t对象\t金额\t余额\t透支额度\t\n";
 		for (auto item = account.begin(); item != account.end(); ++item)
-			cout << *item << endl;
+		{
+			string temp = *item;
+			std::replace(temp.begin(), temp.end(), ',', '\t');
+			cout << temp << endl;
+		}
 	}
 	cout << endl;
 
