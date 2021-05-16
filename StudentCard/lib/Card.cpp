@@ -3,6 +3,12 @@
 
 #include "Card.h"
 
+#ifdef _WIN32
+#define LOCALTIME(a, b) localtime_s(a, b)
+#else
+#define LOCALTIME(a, b) localtime_r(b, a)
+#endif
+
 using std::cout;
 using std::endl;
 using std::string;
@@ -32,7 +38,8 @@ string Card::getTime()
 	char tmp[66];
 	time_t t = time(0);
 	struct tm now_time;
-	localtime_s(&now_time, &t);
+	LOCALTIME(&now_time, &t);
+	// localtime_s(&now_time, &t);
 	strftime(tmp, sizeof(tmp), "%Y/%m/%d/.%X.%A", &now_time);
 	string temp(tmp);
 
@@ -41,10 +48,10 @@ string Card::getTime()
 bool Card::showAccount() const
 {
 	if (account.empty())
-		cout << "Ã»ÓÐ¼ÇÂ¼!" << endl;
+		cout << "Ã»ï¿½Ð¼ï¿½Â¼!" << endl;
 	else
 	{
-		cout << "Ê±¼ä\t\t\t\t²Ù×÷\t¶ÔÏó\t½ð¶î\tÓà¶î\tÍ¸Ö§¶î¶È\t\n";
+		cout << "Ê±ï¿½ï¿½\t\t\t\tï¿½ï¿½ï¿½ï¿½\tï¿½ï¿½ï¿½ï¿½\tï¿½ï¿½ï¿½\tï¿½ï¿½ï¿½\tÍ¸Ö§ï¿½ï¿½ï¿½\t\n";
 		for (auto item = account.begin(); item != account.end(); ++item)
 		{
 			string temp = *item;

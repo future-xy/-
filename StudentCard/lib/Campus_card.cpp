@@ -40,13 +40,13 @@ std::ifstream& operator>>(std::ifstream &is,Campus_card& card)
 }
 std::ofstream& operator<<(std::ofstream &os, Campus_card card)
 {
-	os << "#¿¨ºÅ£º, " << card.num << endl
-		<< "#ÐÕÃû£º, " << card.name << endl
-		<< "#Ñ§ºÅ£º, " << card.student_num << endl
-		<< "#ÔºÏµ£º, " << card.department << endl
-		<< "#Óà¶î£º, " << card.balance << endl
-		<< "#·¢¿¨ÈÕÆÚ£º, " << card.date << endl
-		<< "#ÃÜÂë£º, " << card.passward << endl;
+	os << "#ï¿½ï¿½ï¿½Å£ï¿½, " << card.num << endl
+		<< "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, " << card.name << endl
+		<< "#Ñ§ï¿½Å£ï¿½, " << card.student_num << endl
+		<< "#ÔºÏµï¿½ï¿½, " << card.department << endl
+		<< "#ï¿½ï¿½î£º, " << card.balance << endl
+		<< "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½, " << card.date << endl
+		<< "#ï¿½ï¿½ï¿½ë£º, " << card.passward << endl;
 	os << card.account.size() << endl;
 	for (auto item = card.account.begin(); item != card.account.end(); ++item)
 	{
@@ -75,29 +75,29 @@ bool Campus_card::operation()
 	while (i > 0)
 	{
 
-		cout << "ÇëÊäÈëÃÜÂë£º";
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
 		cin >> the_passward;
 
 		if (the_passward == passward)
 		{
-			cout << "\nÃÜÂëÕýÈ·\n";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·\n";
 			break;
 		}
 		else
-			cout << "\nÃÜÂë´íÎó£¬ÇëÖØÐÂÊäÈë\n"
-			<< "»¹ÓÐ" << i << "´Î»ú»á\n";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+			<< "ï¿½ï¿½ï¿½ï¿½" << i << "ï¿½Î»ï¿½ï¿½ï¿½\n";
 		--i;
 	}
 	if (the_passward == passward)
 	{
 		while (1)
 		{
-			cout << "ÇëÊäÈëÀ¨ºÅÖÐµÄÖ¸Áî\n"
-				<< "(0).ÍË³ö\n"
-				<< "(1).Ö§¸¶\n"
-				<< "(2).ÐÞ¸ÄÃÜÂë\n"
-				<< "(3).²é¿´¿¨Æ¬ÐÅÏ¢\n"
-				<< "(4).²é¿´Á÷Ë®¼ÇÂ¼\n";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ö¸ï¿½ï¿½\n"
+				<< "(0).ï¿½Ë³ï¿½\n"
+				<< "(1).Ö§ï¿½ï¿½\n"
+				<< "(2).ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+				<< "(3).ï¿½é¿´ï¿½ï¿½Æ¬ï¿½ï¿½Ï¢\n"
+				<< "(4).ï¿½é¿´ï¿½ï¿½Ë®ï¿½ï¿½Â¼\n";
 			int order = getOrder();
 			unsigned the_money;
 			string the_place;
@@ -107,47 +107,47 @@ bool Campus_card::operation()
 			case 0:
 				return true;
 			case 1:
-				cout << "\nÇëÊäÈëÏû·ÑµØµã£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÑµØµã£º";
 				cin >> the_place;
-				cout << "\nÇëÊäÈëÏû·Ñ½ð¶î£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ½ï¿½î£º";
 				cin >> the_money;
 				if (pay(the_place, the_money))
-					cout << "\nÖ§¸¶³É¹¦" << endl;
+					cout << "\nÖ§ï¿½ï¿½ï¿½É¹ï¿½" << endl;
 				else
-					cout << "\nÖ§¸¶Ê§°Ü" << endl;
+					cout << "\nÖ§ï¿½ï¿½Ê§ï¿½ï¿½" << endl;
 				break;
 			case 2:
-				cout << "\nÇëÊäÈëÔ­ÃÜÂë£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ë£º";
 				cin >> new_passward;
 				if (new_passward != passward)
 				{
-					cout << "\nÃÜÂë´íÎó" << endl;
+					cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					break;
 				}
-				cout << "\nÇëÊäÈëÐÂÃÜÂë£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
 				cin >> new_passward;
-				cout << "\nÇëÈ·ÈÏÐÂÃÜÂë£º";
+				cout << "\nï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
 				cin >> the_new_passward;
 				if (new_passward == the_new_passward)
 				{
 					passward = new_passward;
-					cout << "\nÐÞ¸ÄÃÜÂë³É¹¦\n";
+					cout << "\nï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½\n";
 				}
 				else
 				{
-					cout << "\nÃÜÂë²»Ò»ÖÂ\n";
+					cout << "\nï¿½ï¿½ï¿½ë²»Ò»ï¿½ï¿½\n";
 				}
 				break;
 			case 3:
-				cout << "\n¿¨Æ¬ÐÅÏ¢ÈçÏÂ£º\n";
+				cout << "\nï¿½ï¿½Æ¬ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Â£ï¿½\n";
 				showMessage();
 				break;
 			case 4:
-				cout << "\nÕË»§Á÷Ë®¼ÇÂ¼ÈçÏÂ£º\n";
+				cout << "\nï¿½Ë»ï¿½ï¿½ï¿½Ë®ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â£ï¿½\n";
 				showAccount();
 				break;
 			default:
-				cout << "\nÖ¸Áî´íÎó£¬ÇëÖØÐÂÊäÈë\n";
+				cout << "\nÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n";
 				break;
 			}
 		}
@@ -163,25 +163,25 @@ bool Campus_card::pay(string place, unsigned money)
 		return false;
 	else
 		balance -= money;
-	writeAccount("Ïû·Ñ", 0, money, place);
+	writeAccount("ï¿½ï¿½ï¿½ï¿½", 0, money, place);
 
 	return true;
 }
 bool Campus_card::transfer_into(unsigned object, unsigned money)
 {
 	balance += money;
-	writeAccount("×ªÈë", object, money, "");
+	writeAccount("×ªï¿½ï¿½", object, money, "");
 
 	return true;
 }
 bool Campus_card::showMessage() const
 {
-	cout << "#¿¨ºÅ£º		" << num << endl;
-	cout << "#ÐÕÃû£º		" << name << endl;
-	cout << "#Ñ§ºÅ£º		" << student_num << endl;
-	cout << "#ÔºÏµ£º		" << department << endl;
-	cout << "#Óà¶î£º		" << balance << endl;
-	cout << "#·¢¿¨ÈÕÆÚ£º	" << date << endl;
+	cout << "#ï¿½ï¿½ï¿½Å£ï¿½		" << num << endl;
+	cout << "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		" << name << endl;
+	cout << "#Ñ§ï¿½Å£ï¿½		" << student_num << endl;
+	cout << "#ÔºÏµï¿½ï¿½		" << department << endl;
+	cout << "#ï¿½ï¿½î£º		" << balance << endl;
+	cout << "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½	" << date << endl;
 
 	return true;
 }
@@ -193,7 +193,7 @@ bool Campus_card::writeAccount(string op, unsigned object_num, unsigned money, s
 		obj = place;
 	else
 		obj = to_string(object_num);
-	temp = getTime() + "," + op + "," + obj +  "," + to_string(money) + "," + to_string(balance)+','+"ÎÞ";
+	temp = getTime() + "," + op + "," + obj +  "," + to_string(money) + "," + to_string(balance)+','+"ï¿½ï¿½";
 	account.push_back(temp);
 	return true;
 }

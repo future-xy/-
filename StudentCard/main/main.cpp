@@ -5,10 +5,10 @@
 #include<set>
 #include<cstdlib>
 
-#include"Card.h"
-#include"Campus_card.h"
-#include"Deposit_card.h"
-#include"Binding_card.h"
+// #include"Card.h"
+// #include"Campus_card.h"
+// #include"Deposit_card.h"
+#include"lib/Binding_card.h"
 
 using std::cout;
 using std::cin;
@@ -21,31 +21,31 @@ using std::ifstream;
 using std::ofstream;
 
 int err_flag = 0;
-map <unsigned, Campus_card> campus_card_list;				//Ğ£Ô°¿¨ÁĞ±í
-map <unsigned, Deposit_card> deposit_card_list;				//´¢Ğî¿¨ÁĞ±í
-map <unsigned, Binding_card> binding_card_list;				//°ó¶¨¿¨ÁĞ±í
-set <string> student;										//Ñ§ÉúÃûµ¥
+map <unsigned, Campus_card> campus_card_list;				//Ğ£Ô°ï¿½ï¿½ï¿½Ğ±ï¿½
+map <unsigned, Deposit_card> deposit_card_list;				//ï¿½ï¿½ï¿½î¿¨ï¿½Ğ±ï¿½
+map <unsigned, Binding_card> binding_card_list;				//ï¿½ó¶¨¿ï¿½ï¿½Ğ±ï¿½
+set <string> student;										//Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//»ñÈ¡ÊäÈëÃüÁî
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int getOrder();
-//ÏÔÊ¾´íÎóĞÅÏ¢
+//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 void showErr(int err_type);
-//´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
+//ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ğ¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 bool read(unsigned &, unsigned &, map <unsigned, Campus_card>&, map <unsigned, Deposit_card>&,
 	map<unsigned, Binding_card> &);
-//½«Êı¾İ±£´æÖÁÎÄ¼şÖĞ
+//ï¿½ï¿½ï¿½ï¿½ï¿½İ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 bool save(unsigned &, unsigned &, const map <unsigned, Campus_card>&, const map <unsigned, Deposit_card>&,
 	const map<unsigned, Binding_card>&);
 
 int main()
 {
 
-	unsigned campus_card_num = 170000;				//Ğ£Ô°¿¨³õÊ¼ºÅÂë
-	unsigned deposit_card_num = 170100;				//´¢Ğî¿¨³õÊ¼ºÅÂë
+	unsigned campus_card_num = 170000;				//Ğ£Ô°ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+	unsigned deposit_card_num = 170100;				//ï¿½ï¿½ï¿½î¿¨ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 
 	if (!read(campus_card_num, deposit_card_num, campus_card_list, deposit_card_list,binding_card_list))
 	{
-		cerr << "³ÌĞò·¢ÉúÁËÑÏÖØ´íÎó£¬¼´½«ÍË³ö.\n";
+		cerr << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ó£¬¼ï¿½ï¿½ï¿½ï¿½Ë³ï¿½.\n";
 		system("pause");
 
 		exit(0);
@@ -53,14 +53,14 @@ int main()
 	while (1)
 	{
 		err_flag = 0;
-		cout << "*»¶Ó­Ê¹ÓÃĞ£Ô°¿¨¹ÜÀíÏµÍ³£¡\n"
-			<< "*ÇëÊäÈëÀ¨ºÅÖĞµÄÃüÁîÒÔÖ´ĞĞÏàÓ¦²Ù×÷£¡\n"
-			<< "*¾¯¸æ£º·ÇÕı³£ÍË³ö¿ÉÄÜµ¼ÖÂ¿¨Æ¬¶³½á£¡£¡£¡\n"
-			<< "(0)ÍË³öÏµÍ³\n"
-			<< "(1)°ìÀí´¢Ğî¿¨\n"
-			<< "(2)°ìÀíĞ£Ô°¿¨\n"
-			<< "(3)°ó¶¨Ğ£Ô°¿¨\n"
-			<< "(4)¿¨Æ¬ÒµÎñ\n";
+		cout << "*ï¿½ï¿½Ó­Ê¹ï¿½ï¿½Ğ£Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½\n"
+			<< "*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+			<< "*ï¿½ï¿½ï¿½æ£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½Â¿ï¿½Æ¬ï¿½ï¿½ï¿½á£¡ï¿½ï¿½ï¿½ï¿½\n"
+			<< "(0)ï¿½Ë³ï¿½ÏµÍ³\n"
+			<< "(1)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¿¨\n"
+			<< "(2)ï¿½ï¿½ï¿½ï¿½Ğ£Ô°ï¿½ï¿½\n"
+			<< "(3)ï¿½ï¿½Ğ£Ô°ï¿½ï¿½\n"
+			<< "(4)ï¿½ï¿½Æ¬Òµï¿½ï¿½\n";
 		int order = getOrder();
 		if (order == -1)
 		{
@@ -101,73 +101,73 @@ int main()
 		switch (order)
 		{
 		case 1:
-			cout << "ÇëÊäÈë¿ª»§ÈËĞÕÃû£º";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 			cin >> name;
-			cout << "\nÇëÊäÈë³õÊ¼ÃÜÂë£º";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ë£º";
 			cin >> passward;
-			cout << "\nÇëÊäÈëÔ¤´æ½ğ¶î£º";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½î£º";
 			cin >> money;
 			newDeposit_card.open_account(deposit_card_num,name,money,passward);
 			deposit_card_list[deposit_card_num] = newDeposit_card;
 			++deposit_card_num;
-			cout << "\n¿ª»§³É¹¦¡£\n";
-			cout << "ÄãµÄ´¢Ğî¿¨ºÅÂëÊÇ£º" << newDeposit_card.getNum() << endl;
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½\n";
+			cout << "ï¿½ï¿½Ä´ï¿½ï¿½î¿¨ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½" << newDeposit_card.getNum() << endl;
 			break;
 		case 2:
-			cout << "ÇëÊäÈëÑ§ÉúĞÕÃû£º";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 			cin >> name;
 			if (student.count(name))
 			{
-				cout << "\n\nÃ¿¸öÑ§ÉúÖ»ÄÜÓĞÒ»ÕÅĞ£Ô°¿¨£¡\n";
+				cout << "\n\nÃ¿ï¿½ï¿½Ñ§ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ğ£Ô°ï¿½ï¿½ï¿½ï¿½\n";
 				break;
 			}
-			cout << "\nÇëÊäÈë³õÊ¼ÃÜÂë£º";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ë£º";
 			cin >> passward;
-			cout << "\nÇëÊäÈëÑ§ºÅ£º";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½Å£ï¿½";
 			cin >> student_num;
-			cout << "\nÇëÊäÈëÑ§Ôº/Ïµ£º";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ôº/Ïµï¿½ï¿½";
 			cin >> department;
-			cout << "\nÇëÊäÈëÔ¤´æ½ğ¶î£º";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½î£º";
 			cin >> money;
 			newCampus_card.open_account(campus_card_num, name, student_num, department, money,passward);
 			campus_card_list[campus_card_num] = newCampus_card;
 			++campus_card_num;
 			student.insert(name);
-			cout << "\n°ìÀí³É¹¦¡£\n";
-			cout << "ÄãµÄĞ£Ô°¿¨ºÅÂëÊÇ£º" << newCampus_card.getNum() << endl;
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½\n";
+			cout << "ï¿½ï¿½ï¿½Ğ£Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½" << newCampus_card.getNum() << endl;
 			break;
 		case 3:
-			cout << "ÇëÊäÈëĞ£Ô°¿¨ºÅ£º";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£Ô°ï¿½ï¿½ï¿½Å£ï¿½";
 			cin >> student_num;
 			cin.clear();
 			if (!campus_card_list.count(student_num))
 			{
-				cout << "\n´ËĞ£Ô°¿¨²»´æÔÚ£¬ÇëÏÈ°ìÀí£¡\n";
+				cout << "\nï¿½ï¿½Ğ£Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ï¿½\n";
 				break;
 			}
 			newBinding_card.init(student_num);
 			campus_card_list.erase(student_num);
 			while (true)
 			{
-				cout << "\nÊäÈë-1½áÊø";
-				cout << "\nÇëÊäÈëÒª°ó¶¨µÄ´¢Ğî¿¨ºÅÂë£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½-1ï¿½ï¿½ï¿½ï¿½";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ó¶¨µÄ´ï¿½ï¿½î¿¨ï¿½ï¿½ï¿½ë£º";
 				cin >> deposit_num;
 				if (deposit_num == -1)
 					break;
 				if(deposit_card_list.count(deposit_num))
 					newBinding_card.bind(deposit_num);
 				else
-					cout << "\n´Ë´¢Ğî¿¨²»´æÔÚ£¬ÇëÖØĞÂÊäÈë\n";
+					cout << "\nï¿½Ë´ï¿½ï¿½î¿¨ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n";
 			}
 			binding_card_list[student_num] = newBinding_card;
-			cout << "\n°ó¶¨³É¹¦£¡\n";
-			cout << "Ğ£Ô°¿¨ºÅ²»±ä£¬¿ÉÒÔ¼ÌĞøÊ¹ÓÃ\n";
+			cout << "\nï¿½ó¶¨³É¹ï¿½ï¿½ï¿½\n";
+			cout << "Ğ£Ô°ï¿½ï¿½ï¿½Å²ï¿½ï¿½ä£¬ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½\n";
 			break;
 		case 4:
 			while (true)
 			{
-				cout << "ÊäÈë-1ÍË³ö\n";
-				cout << "ÇëÊäÈë¿¨ºÅ£º";
+				cout << "ï¿½ï¿½ï¿½ï¿½-1ï¿½Ë³ï¿½\n";
+				cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¨ï¿½Å£ï¿½";
 				cin >> card_num;
 				if (card_num == -1)
 					break;
@@ -178,11 +178,11 @@ int main()
 				else if (binding_card_list.count(card_num))
 					binding_card_list[card_num].operation();
 				else
-					cout << "\n´Ë¿¨Æ¬²»´æÔÚ£¬ÇëÖØĞÂÊäÈë\n";
+					cout << "\nï¿½Ë¿ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n";
 			}
 			break;
 		default:
-			cout << "\n·Ç·¨Ö¸Áî\n";
+			cout << "\nï¿½Ç·ï¿½Ö¸ï¿½ï¿½\n";
 			break;
 		}
 		cin.sync();
@@ -277,5 +277,5 @@ int getOrder()
 void showErr(int err_type)
 {
 	if(err_type==-1)
-		cout << "\nÊäÈëµÄÃüÁî·Ç·¨£¬Çë¼ì²éÊäÈë\n";
+		cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n";
 }

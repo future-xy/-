@@ -42,13 +42,13 @@ std::ifstream& operator>>(std::ifstream &is,Deposit_card& card)
 }
 std::ofstream& operator<<(std::ofstream &os, Deposit_card card)
 {
-	os << "#¿¨ºÅ£º, " << card.num << endl;
-	os << "#ÐÕÃû£º, " << card.name << endl;
-	os << "#Óà¶î£º, " << card.balance << endl;
-	os << "#Í¸Ö§¶î¶È£º, " << card.overdraft << endl;
-	os << "#·¢¿¨ÈÕÆÚ£º, " << card.date << endl;
-	os << "#ÊÇ·ñ±»°ó¶¨£º, " << card.bind_flag << endl
-		<< "#ÃÜÂë£º, " << card.passward << endl;
+	os << "#ï¿½ï¿½ï¿½Å£ï¿½, " << card.num << endl;
+	os << "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, " << card.name << endl;
+	os << "#ï¿½ï¿½î£º, " << card.balance << endl;
+	os << "#Í¸Ö§ï¿½ï¿½È£ï¿½, " << card.overdraft << endl;
+	os << "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½, " << card.date << endl;
+	os << "#ï¿½Ç·ñ±»°ó¶¨£ï¿½, " << card.bind_flag << endl
+		<< "#ï¿½ï¿½ï¿½ë£º, " << card.passward << endl;
 	os << card.account.size() << endl;
 	for (auto item = card.account.begin(); item != card.account.end(); ++item)
 	{
@@ -65,31 +65,31 @@ bool Deposit_card::operation()
 	int i = 3;
 	while (i > 0)
 	{
-		cout << "ÇëÊäÈëÃÜÂë£º";
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
 		cin >> the_passward;
 		if (the_passward == passward)
 		{
-			cout << "\nÃÜÂëÕýÈ·\n";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·\n";
 			break;
 		}
 		else
-			cout << "\nÃÜÂë´íÎó£¬ÇëÖØÐÂÊäÈë\n"
-			<< "»¹ÓÐ" << i << "´Î»ú»á\n";
+			cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+			<< "ï¿½ï¿½ï¿½ï¿½" << i << "ï¿½Î»ï¿½ï¿½ï¿½\n";
 		--i;
 	}
 	if (the_passward == passward)
 	{
 		while (1)
 		{
-			cout << "ÇëÊäÈëÀ¨ºÅÖÐµÄÖ¸Áî\n"
-				<< "(0).ÍË³ö\n"
-				<< "(1).´æ¿î\n"
-				<< "(2).È¡¿î\n"
-				<< "(3).×ªÕË\n"
-				<< "(4).Ö§¸¶\n"
-				<< "(5).ÐÞ¸ÄÃÜÂë\n"
-				<< "(6).²é¿´¿¨Æ¬ÐÅÏ¢\n"
-				<< "(7).²é¿´Á÷Ë®¼ÇÂ¼\n";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ö¸ï¿½ï¿½\n"
+				<< "(0).ï¿½Ë³ï¿½\n"
+				<< "(1).ï¿½ï¿½ï¿½\n"
+				<< "(2).È¡ï¿½ï¿½\n"
+				<< "(3).×ªï¿½ï¿½\n"
+				<< "(4).Ö§ï¿½ï¿½\n"
+				<< "(5).ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½\n"
+				<< "(6).ï¿½é¿´ï¿½ï¿½Æ¬ï¿½ï¿½Ï¢\n"
+				<< "(7).ï¿½é¿´ï¿½ï¿½Ë®ï¿½ï¿½Â¼\n";
 			int order = getOrder();
 			if (order == 0 || order == -1)
 				return false;
@@ -102,88 +102,88 @@ bool Deposit_card::operation()
 			case 0:
 				return true;
 			case 1:
-				cout << "\nÇëÊäÈë½ð¶î£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£º";
 				cin >> the_money;
 				if (deposit(the_money))
-					cout << "\n²Ù×÷³É¹¦£¬" << the_money << "ÔªÒÑ´æÈë"
-					<< "\nÓà¶îÎª£º	" << getBalance()
-					<< "\nÍ¸Ö§¶î¶ÈÎª:" << getOverdraft() << endl;
+					cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½" << the_money << "Ôªï¿½Ñ´ï¿½ï¿½ï¿½"
+					<< "\nï¿½ï¿½ï¿½Îªï¿½ï¿½	" << getBalance()
+					<< "\nÍ¸Ö§ï¿½ï¿½ï¿½Îª:" << getOverdraft() << endl;
 				else
-					cout << "\n´æ¿îÊ§°Ü\n";
+					cout << "\nï¿½ï¿½ï¿½Ê§ï¿½ï¿½\n";
 				break;
 			case 2:
-				cout << "\nÇëÊäÈë½ð¶î£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£º";
 				cin >> the_money;
 				if (withdraw(the_money))
-					cout << "\n²Ù×÷³É¹¦£¬" << the_money << "ÔªÒÑÈ¡³ö"
-					<< "\nÓà¶îÎª£º	" << getBalance()
-					<< "\nÍ¸Ö§¶î¶ÈÎª:" << getOverdraft() << endl;
+					cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½" << the_money << "Ôªï¿½ï¿½È¡ï¿½ï¿½"
+					<< "\nï¿½ï¿½ï¿½Îªï¿½ï¿½	" << getBalance()
+					<< "\nÍ¸Ö§ï¿½ï¿½ï¿½Îª:" << getOverdraft() << endl;
 				else
-					cout << "\nÈ¡¿îÊ§°Ü\n";
+					cout << "\nÈ¡ï¿½ï¿½Ê§ï¿½ï¿½\n";
 				break;
 			case 3:
-				cout << "\nÇëÊäÈëÒª×ªÕÊµÄ¿¨ºÅ£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª×ªï¿½ÊµÄ¿ï¿½ï¿½Å£ï¿½";
 				cin >> card_num;
 				if (campus_card_list.count(card_num) || deposit_card_list.count(card_num) || binding_card_list.count(card_num))
 				{
-					cout << "ÇëÊäÈë×ªÕË½ð¶î£º";
+					cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ë½ï¿½î£º";
 					cin >> the_money;
 					if (remit(card_num, the_money) != -1)
-						cout << "\n²Ù×÷³É¹¦£¬" << the_money << "ÔªÒÑ×ª³ö"
-						<< "\nÓà¶îÎª£º	" << getBalance()
-						<< "\nÍ¸Ö§¶î¶ÈÎª:" << getOverdraft() << endl;
+						cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½" << the_money << "Ôªï¿½ï¿½×ªï¿½ï¿½"
+						<< "\nï¿½ï¿½ï¿½Îªï¿½ï¿½	" << getBalance()
+						<< "\nÍ¸Ö§ï¿½ï¿½ï¿½Îª:" << getOverdraft() << endl;
 					else
-						cout << "\n×ªÕËÊ§°Ü\n";
+						cout << "\n×ªï¿½ï¿½Ê§ï¿½ï¿½\n";
 				}
 				else
-					cout << "\n¿¨Æ¬²»´æÔÚ" << endl;
+					cout << "\nï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 				break;
 			case 4:
-				cout << "\nÇëÊäÈëÏû·ÑµØµã£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÑµØµã£º";
 				cin >> place;
-				cout << "\nÇëÊäÈëÏû·Ñ½ð¶î";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ½ï¿½ï¿½";
 				cin >> the_money;
 				if (pay(place, the_money))
-					cout << "\nÖ§¸¶³É¹¦\n";
+					cout << "\nÖ§ï¿½ï¿½ï¿½É¹ï¿½\n";
 				else
-					cout << "\nÖ§¸¶Ê§°Ü\n";
+					cout << "\nÖ§ï¿½ï¿½Ê§ï¿½ï¿½\n";
 				break;
 			case 5:
-				cout << "\nÇëÊäÈëÔ­ÃÜÂë£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ë£º";
 				cin >> new_passward;
 				if (new_passward != passward)
 				{
-					cout << "\nÃÜÂë´íÎó" << endl;
+					cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" << endl;
 					break;
 				}
-				cout << "\nÇëÊäÈëÐÂÃÜÂë£º";
+				cout << "\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
 				cin >> new_passward;
-				cout << "\nÇëÈ·ÈÏÐÂÃÜÂë£º";
+				cout << "\nï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º";
 				cin >> the_new_passward;
 				if (new_passward == the_new_passward)
 				{
 					passward = new_passward;
-					cout << "\nÐÞ¸ÄÃÜÂë³É¹¦\n";
+					cout << "\nï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½\n";
 				}
 				else
 				{
-					cout << "\nÃÜÂë²»Ò»ÖÂ\n";
+					cout << "\nï¿½ï¿½ï¿½ë²»Ò»ï¿½ï¿½\n";
 				}
 				break;
 			case 6:
 				cout << "*****************************\n";
-				cout << "\n¿¨Æ¬ÐÅÏ¢ÈçÏÂ£º\n";
+				cout << "\nï¿½ï¿½Æ¬ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Â£ï¿½\n";
 				showMessage();
 				cout << "*****************************\n";
 				break;
 			case 7:
 				cout << "*****************************\n";
-				cout << "\nÕË»§Á÷Ë®¼ÇÂ¼ÈçÏÂ£º\n";
+				cout << "\nï¿½Ë»ï¿½ï¿½ï¿½Ë®ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Â£ï¿½\n";
 				showAccount();
 				cout << "*****************************\n";
 				break;
 			default:
-				cout << "\nÖ¸Áî´íÎó£¬ÇëÖØÐÂÊäÈë\n"<<endl;
+				cout << "\nÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"<<endl;
 				break;
 			}
 		}
@@ -217,7 +217,7 @@ bool Deposit_card::transfer_into(unsigned object, unsigned money)
 	}
 	balance += money;
 
-	writeAccount("×ªÈë", object, money, " ");
+	writeAccount("×ªï¿½ï¿½", object, money, " ");
 	return true;
 }
 bool Deposit_card::is_binded() const
@@ -226,11 +226,11 @@ bool Deposit_card::is_binded() const
 }
 bool Deposit_card::showMessage() const
 {
-	cout << "#¿¨ºÅ£º		" << num << endl;
-	cout << "#ÐÕÃû£º		" << name << endl;
-	cout << "#Óà¶î£º		" << balance << endl;
-	cout << "#Í¸Ö§¶î¶È£º	" << overdraft << endl;
-	cout << "#·¢¿¨ÈÕÆÚ£º	" << date << endl;
+	cout << "#ï¿½ï¿½ï¿½Å£ï¿½		" << num << endl;
+	cout << "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		" << name << endl;
+	cout << "#ï¿½ï¿½î£º		" << balance << endl;
+	cout << "#Í¸Ö§ï¿½ï¿½È£ï¿½	" << overdraft << endl;
+	cout << "#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½	" << date << endl;
 
 	return true;
 }
@@ -249,7 +249,7 @@ bool Deposit_card::deposit(unsigned money)
 	}
 	balance += money;
 
-	writeAccount("´æ¿î", 0, money, " ");
+	writeAccount("ï¿½ï¿½ï¿½", 0, money, " ");
 	return true;
 }
 bool Deposit_card::withdraw(unsigned money)
@@ -265,7 +265,7 @@ bool Deposit_card::withdraw(unsigned money)
 	{
 		balance -= money;
 	}
-	writeAccount("È¡¿î", 0, money, " ");
+	writeAccount("È¡ï¿½ï¿½", 0, money, " ");
 	return true;
 }
 unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
@@ -280,7 +280,7 @@ unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
 				money -= (balance + overdraft);
 				binding_card_list[object].Campus_card::transfer_into(num, balance + overdraft);
 				balance = overdraft = 0;
-				writeAccount("×ª³ö", object, temp1, " ");
+				writeAccount("×ªï¿½ï¿½", object, temp1, " ");
 
 				return money;
 			}
@@ -297,7 +297,7 @@ unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
 				}
 				binding_card_list[object].transfer_into(num, money);
 
-				writeAccount("×ª³ö", object, money, " ");
+				writeAccount("×ªï¿½ï¿½", object, money, " ");
 				return 0;
 			}
 		}
@@ -318,7 +318,7 @@ unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
 		{
 			balance -= money;
 		}
-		writeAccount("×ª³ö", object, money, " ");
+		writeAccount("×ªï¿½ï¿½", object, money, " ");
 
 		return 0;
 	}
@@ -336,7 +336,7 @@ unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
 		{
 			balance -= money;
 		}
-		writeAccount("×ª³ö", object, money, " ");
+		writeAccount("×ªï¿½ï¿½", object, money, " ");
 
 		return 0;
 	}
@@ -354,7 +354,7 @@ unsigned Deposit_card::remit(unsigned object, unsigned money,string type)
 		{
 			balance -= money;
 		}
-		writeAccount("×ª³ö", object, money, " ");
+		writeAccount("×ªï¿½ï¿½", object, money, " ");
 
 		return 0;
 	}
@@ -365,7 +365,7 @@ bool Deposit_card::writeAccount(string op, unsigned object_num, unsigned money,s
 	string temp;
 	string obj;
 	if (object_num == 0)
-		obj = "ÎÞ";
+		obj = "ï¿½ï¿½";
 	else
 		obj = to_string(object_num);
 	temp = getTime() + "," + op + "," + obj + "," + to_string(money) + "," + to_string(balance) + "," + to_string(overdraft);
@@ -385,6 +385,6 @@ bool Deposit_card::pay(string place, unsigned money)
 	{
 		balance -= money;
 	}
-	writeAccount("Ö§¸¶", 0, money, place);
+	writeAccount("Ö§ï¿½ï¿½", 0, money, place);
 	return true;
 }
